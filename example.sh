@@ -767,8 +767,10 @@ clear # Blank the screen.
 #-------------------------------------------------------
 # Detect and download any missing scripts and libraries.
 #-------------------------------------------------------
+#
+# Are any files/libraries missing?
 fdl_download_missing_scripts
-# Were any files/libraries missing?
+#
 # Are there any problems with the download/copy of missing scripts?
 if [ -r  $FILE_DL_LIST ] || [ $ERROR -ne 0 ] ; then
    # Yes, there were missing files or download/copy problems so exit program.
