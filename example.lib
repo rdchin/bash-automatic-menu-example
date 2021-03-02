@@ -43,7 +43,7 @@
 # |        Default Variable Values         |
 # +----------------------------------------+
 #
-VERSION="2021-02-25 23:32"
+VERSION="2021-03-02 16:18"
 #
 # Commented out THIS_FILE since it will conflict other scripts which
 # use this library.
@@ -121,12 +121,15 @@ f_check_version () {
       #
       # LAN File Server shared directory.
       SERVER_DIR="[FILE_SERVER_DIRECTORY_NAME_GOES_HERE]"
+      SERVER_DIR="//scotty/files"
       #
       # Local PC mount-point directory.
       MP_DIR="[LOCAL_MOUNT-POINT_DIRECTORY_NAME_GOES_HERE]"
+      MP_DIR="/mnt/scotty/files"
       #
       # Local PC mount-point with LAN File Server Local Repository full directory path.
       LOCAL_REPO_DIR="$MP_DIR/[DIRECTORY_PATH_TO_LOCAL_REPOSITORY]"
+      LOCAL_REPO_DIR="/mnt/scotty/files/LIBRARY/PC-stuff/PC-software/BASH_Scripting_Projects/Repository"
       #
       # Local PC file within TARGET_DIR.
       FILE_TO_COMPARE="[FILE_TO_COMPARE]"
@@ -223,4 +226,4 @@ f_message $GUI "NOK" "6. String in var, expect infobox-nok" "$STRING"
 f_message $GUI "NOK" "7. String in quotes, expect infobox-nok" "This is the Captain speaking, \"All hands to \Z5\ZbCode Magenta!\Zn This is not a drill!\""
 #
 } # End of function f_do_stuff.
-
+#

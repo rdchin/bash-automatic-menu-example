@@ -24,7 +24,7 @@
 # |        Default Variable Values         |
 # +----------------------------------------+
 #
-VERSION="2021-02-25 23:32"
+VERSION="2021-03-02 16:18"
 THIS_FILE="$0"
 TEMP_FILE=$THIS_FILE"_temp.txt"
 GENERATED_FILE=$THIS_FILE"_menu_generated.lib"
@@ -42,12 +42,15 @@ GENERATED_FILE=$THIS_FILE"_menu_generated.lib"
 #
 # LAN File Server shared directory.
 SERVER_DIR="[FILE_SERVER_DIRECTORY_NAME_GOES_HERE]"
+SERVER_DIR="//scotty/files"
 #
 # Local PC mount-point directory.
 MP_DIR="[LOCAL_MOUNT-POINT_DIRECTORY_NAME_GOES_HERE]"
+MP_DIR="/mnt/scotty/files"
 #
 # Local PC mount-point with LAN File Server Local Repository full directory path.
 LOCAL_REPO_DIR="$MP_DIR/[DIRECTORY_PATH_TO_LOCAL_REPOSITORY]"
+LOCAL_REPO_DIR="$MP_DIR/LIBRARY/PC-stuff/PC-software/BASH_Scripting_Projects/Repository"
 #
 #
 #=================================================================
@@ -314,39 +317,6 @@ f_display_common () {
 } # End of function f_display_common.
 #
 # +----------------------------------------+
-# |             Function f_source          |
-# +----------------------------------------+
-#
-#     Rev: 2021-02-23
-#  Inputs: $1=File name to source.
-# Outputs: ERROR.
-#
-f_source () {
-      #
-      if [ -x "$1" ] ; then
-         # If $1 is a library, then source it.
-         case $1 in
-              *.lib)
-                 source $1
-                 ERROR=$?
-                 #
-                 if [ $ERROR -ne 0 ] ; then
-                    echo
-                    echo ">>>>>>>>>><<<<<<<<<<<"
-                    echo ">>> Library Error <<<"
-                    echo ">>>>>>>>>><<<<<<<<<<<"
-                    echo
-                    echo -e "$1 cannot be sourced using command:\n\"source $1\""
-                    echo
-                 fi
-              ;;
-         esac
-         #
-      fi
-      #
-} # End of function f_source.
-#
-# +----------------------------------------+
 # |          Function f_menu_main          |
 # +----------------------------------------+
 #
@@ -429,7 +399,7 @@ f_menu_main () { # Create and display the Main Menu.
 } # End of function f_menu_main.
 #
 # +----------------------------------------+
-# |       fdl_dwnld_file_from_web_site     |
+# |  Function fdl_dwnld_file_from_web_site |
 # +----------------------------------------+
 #
 #     Rev: 2021-02-23
@@ -483,9 +453,9 @@ fdl_dwnld_file_from_web_site () {
       #
 } # End of function fdl_dwnld_file_from_web_site.
 #
-# +------------------------------------------+
-# |    fdl_dwnld_file_from_local_repository  |
-# +------------------------------------------+
+# +-----------------------------------------------+
+# | Function fdl_dwnld_file_from_local_repository |
+# +-----------------------------------------------+
 #
 #     Rev: 2021-02-23
 #  Inputs: $1=Local Repository Directory.
@@ -543,9 +513,9 @@ fdl_dwnld_file_from_local_repository () {
       #
 } # End of function fdl_dwnld_file_from_local_repository.
 #
-# +------------------------------------------+
-# |              fdl_mount_local             |
-# +------------------------------------------+
+# +-------------------------------------+
+# |       Function fdl_mount_local      |
+# +-------------------------------------+
 #
 #     Rev: 2021-02-23
 #  Inputs: $1=Server Directory.
@@ -589,6 +559,39 @@ fdl_mount_local () {
       fi
       #
 } # End of function fdl_mount_local.
+#
+# +------------------------------------+
+# |         Function f_source          |
+# +------------------------------------+
+#
+#     Rev: 2021-02-23
+#  Inputs: $1=File name to source.
+# Outputs: ERROR.
+#
+f_source () {
+      #
+      if [ -x "$1" ] ; then
+         # If $1 is a library, then source it.
+         case $1 in
+              *.lib)
+                 source $1
+                 ERROR=$?
+                 #
+                 if [ $ERROR -ne 0 ] ; then
+                    echo
+                    echo ">>>>>>>>>><<<<<<<<<<<"
+                    echo ">>> Library Error <<<"
+                    echo ">>>>>>>>>><<<<<<<<<<<"
+                    echo
+                    echo -e "$1 cannot be sourced using command:\n\"source $1\""
+                    echo
+                 fi
+              ;;
+         esac
+         #
+      fi
+      #
+} # End of function f_source.
 #
 # +----------------------------------------+
 # |  Function fdl_download_missing_scripts |
