@@ -1,0 +1,211 @@
+#!/bin/bash
+#
+# ©2021 Copyright 2021 Robert D. Chin
+# Email: RDevChin@Gmail.com
+#
+# Usage: source menu_module_main.lib
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program. If not, see <https://www.gnu.org/licenses/>.
+#
+# +--------------------------------------------------------------------------+
+# |                                                                          |
+# |                 Customize Menu choice options below.                     |
+# |                                                                          |
+# +--------------------------------------------------------------------------+
+#
+# Format: <#@@> <Menu Option> <#@@> <Description of Menu Option> <#@@> <Corresponding function or action or cammand>
+#
+#@@Exit#@@Return to previous menu.#@@break
+#
+#@@Hello Moon#@@Print Hello Moon.#@@f_hello_moon
+#
+#@@Goodbye Moon#@@Print Goodbye Moon.#@@f_goodbye_moon
+#
+#@@Good Morning Moon#@@Print Good Morning Moon.#@@f_good_morning_moon
+#
+#@@Good Night Moon#@@Print GoodNight Moon.#@@f_good_night_moon
+#
+#@@GNight Moon#@@Print GNight Moon.#@@f_gnight_moon
+#
+#@@Next Page#@@Next page of choices.#@@f_sub_menu1^$GUI
+#
+# +----------------------------------------+
+# |        Default Variable Values         |
+# +----------------------------------------+
+#
+VERSION="2021-03-02 16:17"
+#
+# Commented out THIS_FILE since it will conflict other scripts which
+# use this library.
+#THIS_FILE="$0"
+#
+# +----------------------------------------+
+# |            Brief Description           |
+# +----------------------------------------+
+#
+#& Brief Description
+#&
+#& This Library of functions for the Demonstration Menu is a
+#& child dependency used by the following scripts.
+#&
+#& Parent script: menu.sh.
+#&
+#& See script menu.sh for Edit History.
+#&
+#& Usage: source menu_module_sub0.lib
+#&
+#&    This program is free software: you can redistribute it and/or modify
+#&    it under the terms of the GNU General Public License as published by
+#&    the Free Software Foundation, either version 3 of the License, or
+#&    (at your option) any later version.
+#&
+#&
+#&    This program is distributed in the hope that it will be useful,
+#&    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#&    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#&    GNU General Public License for more details.
+#&
+#&    You should have received a copy of the GNU General Public License
+#&    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+#
+# +----------------------------------------+
+# |           Code Change History          |
+# +----------------------------------------+
+#
+## Code Change History
+##
+## (Please see script "menu.sh" for Code History information.)
+#
+# +----------------------------------------+
+# |          Function f_hello_moon         |
+# +----------------------------------------+
+#
+#  Inputs: $1=GUI - "dialog" or "whiptail" The CLI GUI application in use.
+#          THIS_DIR, THIS_FILE.
+#    Uses: None.
+# Outputs: temp.txt.
+#
+f_hello_moon () {
+      clear  # Clear screen.
+      echo "Hello Moon"
+      f_press_enter_key_to_continue
+      clear  # Clear screen.
+
+} # End of function f_hello_moon.
+#
+# +----------------------------------------+
+# |        Function f_goodbye_moon         |
+# +----------------------------------------+
+#
+#  Inputs: $1=GUI - "dialog" or "whiptail" The CLI GUI application in use.
+#          THIS_DIR, THIS_FILE.
+#    Uses: None.
+# Outputs: temp.txt.
+#
+f_goodbye_moon () {
+      #
+      clear  # Clear screen.
+      echo "Goodbye Moon"
+      f_press_enter_key_to_continue
+      clear  # Clear screen.
+      #
+} # End of function f_goodbye_moon.
+#
+# +----------------------------------------+
+# |     Function f_good_morning_moon       |
+# +----------------------------------------+
+#
+#  Inputs: $1=GUI - "dialog" or "whiptail" The CLI GUI application in use.
+#          THIS_DIR, THIS_FILE.
+#    Uses: None.
+# Outputs: temp.txt.
+#
+f_good_morning_moon () {
+      #
+      clear  # Clear screen.
+      echo "Good Morning Moon!"
+      f_press_enter_key_to_continue
+      clear  # Clear screen.
+      #
+} # End of function f_good_morning_moon.
+#
+# +----------------------------------------+
+# |      Function f_good_night_moon        |
+# +----------------------------------------+
+#
+#  Inputs: $1=GUI - "dialog" or "whiptail" The CLI GUI application in use.
+#          THIS_DIR, THIS_FILE.
+#    Uses: None.
+# Outputs: temp.txt.
+#
+f_good_night_moon () {
+      #
+      clear  # Clear screen.
+      echo "Good Night Moon!"
+      f_press_enter_key_to_continue
+      clear  # Clear screen.
+      #
+} # End of function f_good_night_moon.
+#
+# +----------------------------------------+
+# |          Function f_gnight_moon        |
+# +----------------------------------------+
+#
+#  Inputs: $1=GUI - "dialog" or "whiptail" The CLI GUI application in use.
+#          THIS_DIR, THIS_FILE.
+#    Uses: None.
+# Outputs: temp.txt.
+#
+f_gnight_moon () {
+      #
+      clear  # Clear screen.
+      echo "G'Night Moon!"
+      f_press_enter_key_to_continue
+      clear  # Clear screen.
+      #
+} # End of function f_gnight_moon.
+#
+# +----------------------------------------+
+# |           Function f_sub_menu1         |
+# +----------------------------------------+
+#
+#  Inputs: $1=GUI.
+#    Uses: None.
+# Outputs: None.
+#
+f_sub_menu1 () {
+      #
+      GENERATED_FILE="menu_generated.lib"
+      #
+      # Create generated menu script from array data.
+      #
+      #
+      # Create generated menu script from array data.
+      #
+      # Note: ***If Menu title contains spaces,
+      #       ***the size of the menu window will be too narrow.
+      #
+      # Menu title MUST use underscores instead of spaces.
+      MENU_TITLE="Sub-menu_One"  # Menu title must substitute underscores for spaces
+      TEMP_FILE=$THIS_DIR/$THIS_FILE"_sub_menu1_temp.txt"
+      #
+      # Create arrays from data.
+      ARRAY_FILE="$THIS_DIR/menu_module_sub1.lib"
+      f_menu_arrays $ARRAY_FILE
+      #
+      # Create generated menu script from array data.
+      f_create_show_menu $1 $GENERATED_FILE $MENU_TITLE $MAX_LENGTH $MAX_LINES $MAX_CHOICE_LENGTH $TEMP_FILE
+      #
+}  # End of function f_submenu0.
