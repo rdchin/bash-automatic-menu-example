@@ -120,20 +120,20 @@ f_check_version () {
       #
       #
       # LAN File Server shared directory.
-      SERVER_DIR="[FILE_SERVER_DIRECTORY_NAME_GOES_HERE]"
-      SERVER_DIR="//scotty/files"
+      # SERVER_DIR="[FILE_SERVER_DIRECTORY_NAME_GOES_HERE]"
+        SERVER_DIR="[FILE_SERVER_DIRECTORY_NAME_GOES_HERE]"
       #
       # Local PC mount-point directory.
-      MP_DIR="[LOCAL_MOUNT-POINT_DIRECTORY_NAME_GOES_HERE]"
-      MP_DIR="/mnt/scotty/files"
+      # MP_DIR="[LOCAL_MOUNT-POINT_DIRECTORY_NAME_GOES_HERE]"
+        MP_DIR="[LOCAL_MOUNT-POINT_DIRECTORY_NAME_GOES_HERE]"
       #
       # Local PC mount-point with LAN File Server Local Repository full directory path.
-      LOCAL_REPO_DIR="$MP_DIR/[DIRECTORY_PATH_TO_LOCAL_REPOSITORY]"
-      LOCAL_REPO_DIR="/mnt/scotty/files/LIBRARY/PC-stuff/PC-software/BASH_Scripting_Projects/Repository"
+      # LOCAL_REPO_DIR="$MP_DIR/[DIRECTORY_PATH_TO_LOCAL_REPOSITORY]"
+        LOCAL_REPO_DIR="$MP_DIR/[DIRECTORY_PATH_TO_LOCAL_REPOSITORY]"
       #
       # Local PC file within TARGET_DIR.
-      FILE_TO_COMPARE="[FILE_TO_COMPARE]"
-      FILE_TO_COMPARE="example.sh"
+      # FILE_TO_COMPARE="[FILE_TO_COMPARE]"
+        FILE_TO_COMPARE="[FILE_TO_COMPARE]"
       #
       # Version of TARGET_FILE.
       VERSION=$(grep --max-count=1 "VERSION" $FILE_TO_COMPARE)

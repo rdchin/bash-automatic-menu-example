@@ -41,16 +41,16 @@ GENERATED_FILE=$THIS_FILE"_menu_generated.lib"
 #--------------------------------------------------------------
 #
 # LAN File Server shared directory.
-SERVER_DIR="[FILE_SERVER_DIRECTORY_NAME_GOES_HERE]"
-SERVER_DIR="//scotty/files"
+# SERVER_DIR="[FILE_SERVER_DIRECTORY_NAME_GOES_HERE]"
+  SERVER_DIR="[FILE_SERVER_DIRECTORY_NAME_GOES_HERE]"
 #
 # Local PC mount-point directory.
-MP_DIR="[LOCAL_MOUNT-POINT_DIRECTORY_NAME_GOES_HERE]"
-MP_DIR="/mnt/scotty/files"
+# MP_DIR="[LOCAL_MOUNT-POINT_DIRECTORY_NAME_GOES_HERE]"
+  MP_DIR="[LOCAL_MOUNT-POINT_DIRECTORY_NAME_GOES_HERE]"
 #
 # Local PC mount-point with LAN File Server Local Repository full directory path.
-LOCAL_REPO_DIR="$MP_DIR/[DIRECTORY_PATH_TO_LOCAL_REPOSITORY]"
-LOCAL_REPO_DIR="$MP_DIR/LIBRARY/PC-stuff/PC-software/BASH_Scripting_Projects/Repository"
+# LOCAL_REPO_DIR="$MP_DIR/[DIRECTORY_PATH_TO_LOCAL_REPOSITORY]"
+  LOCAL_REPO_DIR="[LOCAL_MOUNT-POINT_DIRECTORY_NAME_GOES_HERE]"
 #
 #
 #=================================================================
@@ -180,6 +180,8 @@ FILE_DL_LIST=$THIS_FILE"_file_dl_temp.txt"
 ## Code Change History
 ##
 ## (After each edit made, please update Code History and VERSION.)
+##
+## 2021-03-02 *Updated to latest standards.
 ##
 ## 2021-02-25 *Updated to latest standards and improved comments.
 ##
