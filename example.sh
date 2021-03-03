@@ -43,7 +43,6 @@ GENERATED_FILE=$THIS_FILE"_menu_generated.lib"
 # LAN File Server shared directory.
 # SERVER_DIR="[FILE_SERVER_DIRECTORY_NAME_GOES_HERE]"
   SERVER_DIR="//file_server/public"
-"
 #
 # Local PC mount-point directory.
 # MP_DIR="[LOCAL_MOUNT-POINT_DIRECTORY_NAME_GOES_HERE]"
