@@ -24,7 +24,7 @@
 # |        Default Variable Values         |
 # +----------------------------------------+
 #
-VERSION="2021-03-02 16:18"
+VERSION="2021-03-03 00:38"
 THIS_FILE="$0"
 TEMP_FILE=$THIS_FILE"_temp.txt"
 GENERATED_FILE=$THIS_FILE"_menu_generated.lib"
@@ -48,9 +48,9 @@ GENERATED_FILE=$THIS_FILE"_menu_generated.lib"
 # MP_DIR="[LOCAL_MOUNT-POINT_DIRECTORY_NAME_GOES_HERE]"
   MP_DIR="[LOCAL_MOUNT-POINT_DIRECTORY_NAME_GOES_HERE]"
 #
-# Local PC mount-point with LAN File Server Local Repository full directory path.
-# LOCAL_REPO_DIR="$MP_DIR/[DIRECTORY_PATH_TO_LOCAL_REPOSITORY]"
-  LOCAL_REPO_DIR="[LOCAL_MOUNT-POINT_DIRECTORY_NAME_GOES_HERE]"
+# Local File Server Local Repository full path
+# LOCAL_REPO_DIR="[LOCAL_MOUNT-POINT_DIRECTORY_APPEND_FILE_SERVER_PATH_TO_REPOSITORY]"
+  LOCAL_REPO_DIR="[LOCAL_MOUNT-POINT_DIRECTORY_APPEND_FILE_SERVER_PATH_TO_REPOSITORY]"
 #
 #
 #=================================================================
@@ -71,11 +71,11 @@ GENERATED_FILE=$THIS_FILE"_menu_generated.lib"
 FILE_LIST=$THIS_FILE"_file_temp.txt"
 #
 # Format: [File Name]^[Local/Web]^[Local repository directory]^[web repository directory]
-echo "example.lib^Local^$LOCAL_REPO_DIR^https://raw.githubusercontent.com/rdchin/BASH_function_library/master/"            >> $FILE_LIST
+echo "example.lib^Local^$LOCAL_REPO_DIR^https://raw.githubusercontent.com/rdchin/bash_menu_example/main/"                    >> $FILE_LIST
 echo "common_bash_function.lib^Local^$LOCAL_REPO_DIR^https://raw.githubusercontent.com/rdchin/BASH_function_library/master/" >> $FILE_LIST
 #
 # Create a list of files FILE_DL_LIST, which need to be downloaded.
-
+#
 # From FILE_LIST (list of script and library files), find the files which
 # need to be downloaded and put those file names in FILE_DL_LIST.
 #
@@ -181,7 +181,7 @@ FILE_DL_LIST=$THIS_FILE"_file_dl_temp.txt"
 ##
 ## (After each edit made, please update Code History and VERSION.)
 ##
-## 2021-03-02 *Updated to latest standards.
+## 2021-03-03 *Updated to latest standards.
 ##
 ## 2021-02-25 *Updated to latest standards and improved comments.
 ##
@@ -369,7 +369,7 @@ f_menu_main () { # Create and display the Main Menu.
          #
          # Specify library file name with menu item data.
          # ARRAY_FILE="[FILENAME_GOES_HERE]"
-         ARRAY_FILE="$THIS_DIR/example.lib"
+           ARRAY_FILE="$THIS_DIR/example.lib"
       fi
       #
       # Create arrays from data.
@@ -382,7 +382,7 @@ f_menu_main () { # Create and display the Main Menu.
       # Create generated menu script from array data.
       #
       # Note: ***If Menu title contains spaces,
-      #       ***the size of the menu window will be too narrow.
+      #       ***the size of the Dialog/Whiptail menu window will be too narrow.
       #
       # Menu title MUST use underscores instead of spaces.
       MENU_TITLE="CLI_Action_Menu"  # Menu title must substitute underscores for spaces

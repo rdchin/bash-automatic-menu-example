@@ -43,7 +43,7 @@
 # |        Default Variable Values         |
 # +----------------------------------------+
 #
-VERSION="2021-03-02 16:18"
+VERSION="2021-03-03 00:38"
 #
 # Commented out THIS_FILE since it will conflict other scripts which
 # use this library.
@@ -133,7 +133,7 @@ f_check_version () {
       #
       # Local PC file within TARGET_DIR.
       # FILE_TO_COMPARE="[FILE_TO_COMPARE]"
-        FILE_TO_COMPARE="[FILE_TO_COMPARE]"
+        FILE_TO_COMPARE="example.sh"
       #
       # Version of TARGET_FILE.
       VERSION=$(grep --max-count=1 "VERSION" $FILE_TO_COMPARE)
