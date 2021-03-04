@@ -24,7 +24,7 @@
 # |        Default Variable Values         |
 # +----------------------------------------+
 #
-VERSION="2021-03-03 11:38"
+VERSION="2021-03-04 10:18"
 THIS_FILE="$0"
 TEMP_FILE=$THIS_FILE"_temp.txt"
 GENERATED_FILE=$THIS_FILE"_menu_generated.lib"
@@ -187,6 +187,9 @@ FILE_DL_LIST=$THIS_FILE"_file_dl_temp.txt"
 ## (After each edit made, please update Code History and VERSION.)
 ##
 ## 2021-03-03 *Updated to latest standards.
+##            *Section "Default Variable Values", f_check_version use a
+##             directory path example to clarify directory settings usage.
+##
 ##
 ## 2021-02-25 *Updated to latest standards and improved comments.
 ##
