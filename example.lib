@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# ©2021 Copyright 2021 Robert D. Chin
+# ©2023 Copyright 2023 Robert D. Chin
 # Email: RDevChin@Gmail.com
 #
 # Usage: source example.lib
@@ -43,7 +43,7 @@
 # |        Default Variable Values         |
 # +----------------------------------------+
 #
-VERSION="2021-04-01 00:44"
+VERSION="2022-04-20 23:34"
 #
 # Commented out THIS_FILE since it will conflict other scripts which
 # use this library.
