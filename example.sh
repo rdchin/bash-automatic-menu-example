@@ -24,7 +24,7 @@
 # |        Default Variable Values         |
 # +----------------------------------------+
 #
-VERSION="2022-04-20 23:34"
+VERSION="2023-12-14 20:45"
 THIS_FILE=$(basename $0)
 FILE_TO_COMPARE=$THIS_FILE
 TEMP_FILE=$THIS_FILE"_temp.txt"
@@ -184,6 +184,12 @@ FILE_DL_LIST=$THIS_FILE"_file_dl_temp.txt"
 ## (After each edit made, please update Code History and VERSION.)
 ##
 ## Includes changes to example.lib.
+##
+## 2023-12-14 *Section "Main" changed from: f_test_environment $1
+##                            changed   to: f_test_environment $GUI
+##             If string parameter $1 was not a UI, then f_arguments would
+##             exit out of the script cleanly, but really want to use $GUI
+##             as the argument. (See common_bash_function.lib, f_argments).
 ##
 ## 2022-04-20 *fdl_download_missing_scripts fixed bug to prevent downloading
 ##             from the remote repository if the local repository was
@@ -928,7 +934,7 @@ fi
 # fi
 #
 # Test for BASH environment.
-f_test_environment $1
+f_test_environment $GUI
 #
 # If an error occurs, the f_abort() function will be called.
 # trap 'f_abort' 0
