@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# ©2023 Copyright 2023 Robert D. Chin
+# ©2024 Copyright 2024 Robert D. Chin
 # Email: RDevChin@Gmail.com
 #
 # Usage: source example.lib
@@ -50,7 +50,7 @@
 # |        Default Variable Values         |
 # +----------------------------------------+
 #
-VERSION="2024-02-23 13:48"
+VERSION="2024-02-24 19:19"
 #
 # Commented out THIS_FILE since it will conflict other scripts which
 # use this library.
@@ -62,14 +62,28 @@ VERSION="2024-02-23 13:48"
 #
 #& Brief Description
 #&
-#& Library of BASH functions, example.lib is a child dependency
-#& used by the following scripts.
+#& This script demonstrates the display of menus which have their items
+#& in clear text comment lines in a file which is easily edited.
 #&
-#& Parent script: example.sh.
+#& Please see GitHub repository "bash-automatic-menu-creator" for an
+#& example of nested menus and submenus.
 #&
-#& See script example.sh for Edit History.
+#& This script will generate either a CLI text menu, or "Dialog" or
+#& "Whiptail" UI menu from an array using data in clear text in a file.
 #&
-#& Usage: source example.lib
+#& A single script file may contain data for many menus and the code is
+#& designed especially for the easy set up of menus and sub-menus.
+#&
+#& All menus are edited by changing or adding/deleting comment lines.
+#& The code will use that data to automatically display the menu in your
+#& preferred UI without any additional coding on your part.
+#&
+#& Required scripts: example.sh
+#&                   example.lib
+#&                   common_bash_function.lib
+#&
+#& Usage: bash example.sh
+#&        (not sh example.sh)
 #&
 #&    This program is free software: you can redistribute it and/or modify
 #&    it under the terms of the GNU General Public License as published by
@@ -83,7 +97,7 @@ VERSION="2024-02-23 13:48"
 #&    GNU General Public License for more details.
 #&
 #&    You should have received a copy of the GNU General Public License
-#&    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+#&    along with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 # +----------------------------------------+
 # |           Code Change History          |
@@ -153,7 +167,7 @@ f_check_version () {
       # Local PC mount-point with LAN File Server Local Repository full directory path.
       # LOCAL_REPO_DIR="$MP_DIR/[DIRECTORY_PATH_TO_LOCAL_REPOSITORY]"
       if [ -z "$LOCAL_REPO_DIR" ] ; then
-        LOCAL_REPO_DIR="$MP_DIR/scripts/BASH/Repository"
+        LOCAL_REPO_DIR="$MP_DIR/Local_Repository"
       fi
       #
       # Local PC file to be compared.
