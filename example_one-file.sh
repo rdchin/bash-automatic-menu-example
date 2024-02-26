@@ -51,7 +51,7 @@
 # |        Default Variable Values         |
 # +----------------------------------------+
 #
-VERSION="2024-02-25 21:45"
+VERSION="2024-02-26 11:19"
 THIS_FILE=$(basename $0)
 FILE_TO_COMPARE=$THIS_FILE
 TEMP_FILE=$THIS_FILE"_temp.txt"
@@ -227,6 +227,8 @@ FILE_DL_LIST=$THIS_FILE"_file_dl_temp.txt"
 ## (After each edit made, please update Code History and VERSION.)
 ##
 ## Includes changes to example.lib.
+##
+## 2024-02-26 *Initial release of example_one-file.sh based on example.sh.
 ##
 ## 2024-02-25 *Section "Default Variable Values" bug fixed corrected
 ##             Web Repository reference for $FILE_LIST.
