@@ -51,7 +51,7 @@
 # |        Default Variable Values         |
 # +----------------------------------------+
 #
-VERSION="2024-02-26 11:19"
+VERSION="2024-02-26 11:29"
 THIS_FILE=$(basename $0)
 FILE_TO_COMPARE=$THIS_FILE
 TEMP_FILE=$THIS_FILE"_temp.txt"
@@ -135,12 +135,11 @@ FILE_DL_LIST=$THIS_FILE"_file_dl_temp.txt"
 #& The code will use that data to automatically display the menu in your
 #& preferred UI without any additional coding on your part.
 #&
-#& Required scripts: example.sh
-#&                   example.lib
+#& Required scripts: example_one-file.sh
 #&                   common_bash_function.lib
 #&
-#& Usage: bash example.sh
-#&        (not sh example.sh)
+#& Usage: bash example_one-file.sh
+#&        (not sh example_one-file.sh)
 #&
 #&    This program is free software: you can redistribute it and/or modify
 #&    it under the terms of the GNU General Public License as published by
@@ -160,33 +159,33 @@ FILE_DL_LIST=$THIS_FILE"_file_dl_temp.txt"
 # |             Help and Usage             |
 # +----------------------------------------+
 #
-#?    Usage: bash example.sh [OPTION(S)]
+#?    Usage: bash example_one-file.sh [OPTION(S)]
 #?
 #? Examples:
 #?
-#?                            Force display to use a different UI.
-#? bash example.sh text       Use Cmd-line user-interface (80x24 minimum).
-#?                 dialog     Use Dialog   user-interface.
-#?                 whiptail   Use Whiptail user-interface.
+#?                                 Force display to use a different UI.
+#? bash example_one-file.sh text   Use Cmd-line user-interface (80x24 min.)
+#?                          dialog     Use Dialog   user-interface.
+#?                          whiptail   Use Whiptail user-interface.
 #?
-#? bash example.sh --help     Displays this help message using Cmd-line UI.
-#?                 -?
+#? bash example_one-file.sh --help     Displays this help message.
+#?                          -?
 #?
-#? bash example.sh --about    Displays script version.
-#?                 --version
-#?                 --ver
-#?                 -v
+#? bash example_one-file.sh --about    Displays script version.
+#?                          --version
+#?                          --ver
+#?                          -v
 #?
-#? bash example.sh --update   Update script.
-#?                 -u
+#? bash example_one-file.sh --update   Update script.
+#?                          -u
 #?
-#? bash example.sh --history  Displays script code history.
-#?                 --hist
+#? bash example_one-file.sh --history  Displays script code history.
+#?                          --hist
 #?
 #? Examples using 2 arguments:
 #?
-#? bash example.sh --hist text
-#?                 --ver dialog
+#? bash example_one-file.sh --hist text
+#?                          --ver dialog
 #
 # +----------------------------------------+
 # |                Code Notes              |
@@ -239,140 +238,6 @@ FILE_DL_LIST=$THIS_FILE"_file_dl_temp.txt"
 ##             after checking for missing files. It was not getting deleted
 ##             when script used CLI parameters that did not display a menu.
 ##
-## 2024-02-24 *Updated to latest standards, improved instructional comments.
-##
-## 2024-02-23 *f_check_version updated to latest version.
-##            *fdl_download_missing_scripts
-##             fdl_mount_local
-##             fdl_dwnld_file_from_web_site
-##             fdl_dwnld_file_from_local_repository
-##             Tested downloading all files, libraries and scripts
-##             and installation from GitHub.com Repository files.
-##
-##             You can even install everything by downloading only this
-##             single stand-alone script then it will download all other
-##             necessary scripts and libraries automatically.
-##
-##            *f_menu_main_all_menus added replacing f_menu_main.
-##            *f_menu_main deleted in favor of f_menu_main_all_menus.
-##            *Section "Main Program" changed from: f_menu_main
-##                                    changed   to: f_menu_main_all_menus
-##             These changes use the menu template "f_menu_main_all_menus"
-##             which may be used for all menus. It is more versatile and
-##             requires fewer passed parameters making it simpler to use.
-##
-## 2023-12-14 *Section "Main" changed from: f_test_environment $1
-##                            changed   to: f_test_environment $GUI
-##             If string parameter $1 was not a UI, then f_arguments would
-##             exit out of the script cleanly, but really want to use $GUI
-##             as the argument. (See common_bash_function.lib, f_argments).
-##
-## 2022-04-20 *fdl_download_missing_scripts fixed bug to prevent downloading
-##             from the remote repository if the local repository was
-##             unavailable and the script was only in the local repository.
-##
-## 2021-04-01 *Section "Code Notes" added. Improved comments.
-##
-## 2021-03-28 *Comment cleanup. Move the appended comments to start on the
-##             previous line to improve readability.
-##
-## 2021-03-25 *f_check_version updated to add a second optional argument.
-##             so a single copy in dropfsd_module_main.lib can replace the
-##             customized versions in fsds.sh, and fsdt.sh.
-##             Rewrote to eliminate comparing the version of a hard-coded
-##             script or file name in favor of passing any script or file
-##             name as an argument whose version is then compared to
-##             determine whether or not to upgrade.
-##            *Section "Main Program" detect UI before detecting arguments.
-##            *Comment cleanup. Move the appended comments to start on the
-##             previous line to improve readability.
-##            *fdl_source bug ERROR not initialized fixed.
-##            *Section "Default Variable Values" defined FILE_TO_COMPARE and
-##             defined THIS_FILE=$(basename $0) to reduce maintenance.
-##
-## 2021-03-12 *Updated to latest standards and improved comments.
-##            *fdl_download_missing_scripts added 2 arguments for file names
-##             as arguments.
-##            *fdl_download_missing_scripts, f_run_app, and application
-##             functions changed to allow missing dependent scripts to be
-##             automatically downloaded rather than simply displaying an
-##             error message that they were missing.
-##
-## 2021-03-03 *Updated to latest standards.
-##            *Section "Default Variable Values", f_check_version use a
-##             directory path example to clarify directory settings usage.
-##
-## 2021-02-25 *Updated to latest standards and improved comments.
-##
-## 2021-02-23 *fdl_download_missing_scripts rewrote logic for downloading,
-##             extensively tested mountpoint action, Local Repository and
-##             Web Repository error fallback logic of downloading when
-##             either repository and/or target file were not available.
-##            *f_choose_dl_source, f_choose_download_source deleted.
-##
-## 2021-02-21 *Section "Code Change History" added instructions.
-##
-## 2021-02-19 *fdl_download_missing_scripts added to modulize existing code
-##             under Section "Main Program" to allow easier deletion of code
-##             the "Update Version" feature is not desired.
-##            *Functions related to "Update Version" renamed with an "fdl"
-##             prefix to identify dependent functions to delete if that
-##             function is not desired.
-##            *Section "Code Change History" added instructions on how to
-##             disable/delete "Update Version" feature or "Main Menu".
-##
-## 2021-02-13 *Changed menu item wording from "Exit to command-line" prompt.
-##                                         to "Exit this menu."
-##
-## 2021-02-11 *Updated to latest standards.
-##
-## 2021-02-07 *Updated to latest standards.
-##
-## 2021-01-30 *Section "Default Variable Values" moved variable
-##             initializations from Main section into this section.
-##            *Updated to latest standards.
-##
-## 2020-10-27 *Updated to latest standards.
-##
-## 2020-10-23 *f_arguments, "Help and Usage" added option --update -u.
-##            *f_check_version updated to latest standards.
-##
-## 2020-10-22 *Main added functionality to download any dependent file or
-##             library from this script.
-##            *f_choose_dl_source, f_source added to optimize the enhanced
-##             download functionality and to allow user a choice between
-##             downloading file and library dependencies from a local
-##             or a web repository.
-##
-## 2020-09-30 *Updated to latest standards.
-##
-## 2020-09-09 *Updated to latest standards.
-##
-## 2020-05-15 *Main added TEMP_FILE and more example code.
-##
-## 2020-04-22 *f_message split into several functions for clarity and
-##             simplicity f_msg_(txt/ui)_(file/string)_(ok/nok).
-##            *f_yn_question split off f_yn_defaults.
-##
-## 2020-04-19 *Found bug in VERSION setting in f_about, f_code_history,
-##             f_help_message. Need to set $VERSION using correct $THIS_FILE.
-##
-## 2020-04-18 *Fixed bug affecting menu items "About", "Code History",
-##             and "Help" where f_update menu_gui/txt did not substitute
-##             the "^" <carot> for <space> in FUNC="f_<function>^$GUI".
-##             So $1 was never set to $GUI when calling f_about,
-##             f_code_history, and f_help_message.
-##
-## 2020-04-15 *Standardized code to latest implementations.
-##            *f_message total rewrite to handle text file, strings with
-##             or without embedded "/n" or "/Zn" commands.
-##
-## 2020-04-07 *Cosmetic formatting changes in if-then, case, statements
-##             and comment lines.
-##
-## 2020-04-06 *f_arguments standardized.
-##
-## 2020-04-06 *Initial Release.
 #
 # +------------------------------------+
 # |     Function f_display_common      |
@@ -419,7 +284,7 @@ f_display_common () {
       #==================================================================
       #
       #
-      THIS_FILE="example.sh"  # <<<--- INSERT ACTUAL FILE NAME HERE.
+      THIS_FILE="example_one-file.sh"  # <<<--- INSERT ACTUAL FILE NAME HERE.
       #
       TEMP_FILE=$THIS_DIR/$THIS_FILE"_temp.txt"
       #
